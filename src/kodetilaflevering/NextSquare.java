@@ -15,7 +15,7 @@ public class NextSquare {
         int h = (int)Math.sqrt(n);
         int g = h+1;
         return(g*g);
-
+//hej
         
     }
     
