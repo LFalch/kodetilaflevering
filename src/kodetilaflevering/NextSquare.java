@@ -1,8 +1,20 @@
 package kodetilaflevering;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class NextSquare {
     public static void main(String[] args) {
-        System.out.print(nextSquare(-8));
+    	try {
+    	System.out.println("Indtast et tal, og se det dobbelte produkt af det næste hele tal:");
+    	Scanner console = new Scanner(System.in);
+		int n = console.nextInt();
+        System.out.print(nextSquare(n));
+    	}
+		catch (InputMismatchException exception)
+		{
+			System.out.println("Dette er ikke et heltal");
+		}
     }
     
     public static int nextSquare(int n) {
