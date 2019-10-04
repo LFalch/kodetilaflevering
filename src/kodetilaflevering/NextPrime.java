@@ -1,3 +1,5 @@
+package kodetilaflevering;
+
 
 public class NextPrime {
 
