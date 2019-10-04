@@ -10,9 +10,7 @@ public class Telefon {
 		int i;
 		for (i = 0; i < k; i++) {
 			char c = n.charAt(i);
-			//if(c = int) {
-				
-			//}
+			boolean b = n.
 			System.out.println(c);
 		}
 		
