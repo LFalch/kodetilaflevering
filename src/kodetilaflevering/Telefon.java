@@ -31,3 +31,4 @@ public class Telefon {
 		return(h);
 	}
 }
+run test 
