@@ -10,8 +10,9 @@ public class Telefon {
 		int i;
 		for (i = 0; i < k; i++) {
 			char c = n.charAt(i);
-			boolean b = n.
+			boolean b = n.contentEquals("+45");
 			System.out.println(c);
+			System.out.print(b);
 		}
 		
 		phoneTestet(n);
