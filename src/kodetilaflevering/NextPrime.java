@@ -1,5 +1,6 @@
 package kodetilaflevering;
 
+
 public class NextPrime {
 
 	public static void main (String [] args) {
