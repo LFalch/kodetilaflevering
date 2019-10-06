@@ -5,38 +5,39 @@ import java.util.Scanner;
 public class Telefon {
 	public static void main(String[] args) {
 		Scanner consol = new Scanner(System.in);
-		String n = consol.next();
-		int k = n.length();
-		//int i;
-		if(k >= 8) {
-			String j = n.replaceAll("hej","din mor");
-			System.out.print(j);
-		}
-		System.out.println(n.startsWith("+45"));
+		String n = consol.nextLine();
 		
-		
-		
-		/*
-		for (i = 0; i < k; i++) {
-			char c = n.charAt(i);
-			boolean b = n.contentEquals("+45");
-			System.out.println(c);
-			System.out.print(b);
-		}*/
-		
-		phoneTestet(n);
+		System.out.print(phoneTestet(n));
 		
 		
 	}
 
 	public static String phoneTestet(String n) {
+		int k = n.length();
+		String ret = "+45 ";
+		String j = "";
+		String h = "";
+		if(k >= 8) {
+			j = n.replaceAll("\\s","");
+		}else {
+		}
+		if(j.startsWith("+45") ) {
+			j = j.replaceAll("\\+45", "");
+		}else {
+			//ret = "Fejl";
+		}
+		if(j.matches("[0-9]+")) {
+			
+		}else {
+			j = "fegl";
+		}
+		if(h.length() == 8) {
+			
+		}else {
+			ret = "Fejl";
+		}
 		
-		int length = n.length();
-		System.out.print(length);
-		
-		
-		
-		String h = "Hej";
-		return(h);
+
+		return j;
 	}
 }
