@@ -38,17 +38,21 @@ public class Password {
 		if (length < 7) {
 			System.out.println("unacceptable");
 		} else {
-			if (length >=7 && småBogstav >=1 && storeBogstav >= 1) {
+			if (length == 7 && småBogstav >=1 && storeBogstav >= 1) {
+				System.out.println("acceptable");
+			} else { 
+				if (length == 8 && småBogstav >=1 && storeBogstav >= 1) {
 				System.out.println("acceptable");
 			} else {
 				if (length >=9 && småBogstav >=1 && storeBogstav >= 1) {
 					System.out.println("strong");
 				}
 			}
+			}
 		}
 	}
 }
-//Der skal fikses så der kun kommer 1 svar ud!!
+//Der skal fikses så der kun kommer 1 svar ud!! FIKSET
 //Der kommer ikke svar ud fra Strong... Kun acceptable
 //Der skal fikses så der tages højde for ikke alfanumerisk
 //Fix input ved kode som: ABCD!#$&
