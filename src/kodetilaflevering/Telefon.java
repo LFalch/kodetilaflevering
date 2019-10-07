@@ -7,6 +7,7 @@ public class Telefon {
 	public static void main(String[] args) {
 		Scanner consol = new Scanner(System.in);
 		String n = consol.nextLine();
+		consol.close();
 		//kalder funktionen phoneTestet. med en string n.
 		System.out.print(phoneTestet(n));
 		
