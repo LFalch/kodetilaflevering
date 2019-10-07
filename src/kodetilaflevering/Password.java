@@ -1,5 +1,4 @@
 package kodetilaflevering;
-
 import java.util.Scanner;
 public class Password {
 
@@ -70,7 +69,7 @@ public class Password {
 		return ikkeAlfa;
 	}
 
-	/*public static String tjekStyrke (String s) {
+	public static String tjekStyrke (String s) {
 		if (s.length() <= 9 && småBogstav >= 1 && storeBogstav >= 1 && Num >= 1 && ikkeAlfa >= 1) {
 			System.out.print("strong");
 		} else if (s.length() == 8 && småBogstav >= 1 && storeBogstav >= 1 && Num >= 1 && ikkeAlfa >= 1) {
@@ -81,5 +80,5 @@ public class Password {
 			System.out.print("unacceptable");
 		}	
 		return s;
-	} */
+	}
 }

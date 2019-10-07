@@ -1,7 +1,13 @@
+package kodetilaflevering;
+
 import java.util.Scanner;
-//LAV TIL STRING - OG "IF LETTER" SKRIV KUN TAL
-public class cprNummer {
-	public static void main (String [] args) {
+
+public class CPRtest {
+	public static boolean main (String [] args) {
+
+
+	}
+	public static boolean tjek (String a) {
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
 		//CPR-nummer består af 10 tal, DDMMÅÅ-4tal
@@ -20,25 +26,8 @@ public class cprNummer {
 		int ddt = Integer.parseInt(dd);
 		int yeart = Integer.parseInt(year);
 		int lastt = Integer.parseInt(last);
-		
-		if (datoOgMåned == true && årTjek == true) {
-			String lige = s.substring(10);
-			int liget = Integer.parseInt(lige);
-			int ulige = liget % 2;
-			if (ulige == 0) {
-				System.out.print("lige");
-			} else {
-				System.out.print("ulige");
-			}
-		}
-	}
-	
-	public static boolean datoOgMåned (int mmt, int ddt) {
-		String mm = s.substring(0,2);
-		String dd = s.substring(2,4);
-		int mmt = Integer.parseInt(mm);
-		int ddt = Integer.parseInt(dd);
-		
+
+
 		if (mmt == 01 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Januar");
 			return true;
@@ -88,30 +77,16 @@ public class cprNummer {
 			return true;
 			//Måned 12 Dato = 1-31)){
 		} else {
-			return false;
+			System.out.print("ikke et cprnummer");
 		}
-	}
 
-/*	public static boolean årTjek (int yeart) {
-		String year = s.substring(4,6);
-		int yeart = Integer.parseInt(year);
-
-		if (yeart <= 2019) {
-			return true;			
-		} else {
-			return false;
-		}
-	}
-
-	public static String ligeUlige (String s) {
 		String lige = s.substring(10);
 		int liget = Integer.parseInt(lige);
 		int ulige = liget % 2;
 		if (ulige == 0) {
-			return "lige";
+			System.out.print("lige");
 		} else {
-			return  "ulige";
+			System.out.print("ulige");
 		}
 	}
-	*/
 }
