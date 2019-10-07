@@ -18,26 +18,29 @@ public class Telefon {
 		String j = "";
 		String h = "";
 		if(k >= 8) {
-			j = n.replaceAll("\\s","");
+			n = n.replaceAll("\\s","");
+		}else {
+			return "fejl";
+		}
+		if(n.startsWith("+45") ) {
+			n = n.replaceAll("\\+45", "");
 		}else {
 		}
-		if(j.startsWith("+45") ) {
-			j = j.replaceAll("\\+45", "");
-		}else {
-			//ret = "Fejl";
+		if(n.startsWith("0")) {
+			return "fejl";
 		}
-		if(j.matches("[0-9]+")) {
+		if(n.matches("[0-9]+")) {
 			
 		}else {
-			j = "fegl";
+			return "fejl";
 		}
-		if(h.length() == 8) {
+		if(n.length() == 8) {
 			
 		}else {
-			ret = "Fejl";
+			return "fejl";
 		}
 		
 
-		return j;
+		return "+45 "+n;
 	}
 }
