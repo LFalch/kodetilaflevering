@@ -1,7 +1,7 @@
 package kodetilaflevering;
 
 import java.util.Scanner;
-
+//LAV TIL STRING - OG "IF LETTER" SKRIV KUN TAL
 public class cprNummer {
 	public static void main (String [] args) {
 		Scanner scan = new Scanner(System.in);
@@ -17,10 +17,10 @@ public class cprNummer {
 		System.out.println(mms);
 		String dds = cprString.substring(2,4);
 		System.out.println(dds);
-		int mmt = Integer.parseInt(mms);
-		System.out.println(mmt);
-		int ddt = Integer.parseInt(dds);
-		System.out.println(ddt);
+		//int mmt = Integer.parseInt(mms);
+		//System.out.println(mmt);
+		//int ddt = Integer.parseInt(dds);
+		//System.out.println(ddt);
 		//int firstIndex = s.indexOf();
 	}
 }
