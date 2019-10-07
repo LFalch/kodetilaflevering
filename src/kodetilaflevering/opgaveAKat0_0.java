@@ -30,8 +30,8 @@ public class opgaveAKat0_0 {
 
 				//int randomint = r.nextInt();
 				//Skal have musen til at bevæge sig negativ retning også
-				int mX = r.nextInt(2-2)+2;
-				int mY = r.nextInt(2-2)+2;
+				int mX = r.nextInt(2-2)-2;
+				int mY = r.nextInt(2-2)-2;
 				if (mX < 0) {
 					mX = mX * -1;
 				}
