@@ -5,7 +5,7 @@ public class NextPrime {
 
 	public static void main (String [] args) {
 		System.out.println(isPrime(0));
-		System.out.println(nextPrime(-17));
+		System.out.println(nextPrime(125676545));
 	}
 
 	public static boolean isPrime (int n) {	

@@ -1,31 +1,38 @@
 package kodetilaflevering;
-
 import java.util.Scanner;
-//AFVIS HVIS IKKE RIGTIG LÆNGDE
+
 public class cprNummer {
 	public static void main (String [] args) {
+		//Kalder på et cpr-nummer
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
-
+		//Printer test af CPRNummeret
+		System.out.print(TestafCPR(s));
+	}
+	public static String TestafCPR(String s) {
+		//Tester hvorvidt det sidste tal er lige eller ulige
+		String a;
 		if (erbogstav (s) > 1) {
-			System.out.println("ikke et cprnummer");	
-		} else if (datoOgMåned(s) == false) {
-			System.out.println("ikke et cprnummer");
-		} else if (datoOgMåned (s) == true) {
+			a =("ikke et cprnummer");			
+		} else if (s.length() > 10 || s.length() < 10){
+			a =("ikke et cprnummer");
+		} else if (passerdato(s) == false) {
+			a =("ikke et cprnummer");
+		} else {
 			String lige = s.substring(9);
 			int liget = Integer.parseInt(lige);
 			int ulige = liget % 2;
 			if (ulige == 0) {
-				System.out.print("lige cprnummer");
+				a =("lige cprnummer");
 			} else if (ulige != 0){
-				System.out.print("ulige cprnummer");
-			} else if (s.length() > 10 || s.length() < 10){
-				System.out.println("ikke et cprnummer");
+				a =("ulige cprnummer");
 			} else {
-				System.out.println("ikke et cprnummer");
+				a =("ikke et cprnummer");
 			}
 		}
+		return a;
 	}
+	
 	public static int erbogstav (String s) {
 		int erbogstav = 0;
 		for (int i = 0; i < s.length(); i++) {
@@ -36,53 +43,57 @@ public class cprNummer {
 		}
 		return erbogstav;
 	}
-	public static boolean datoOgMåned (String s) {
 
-		String dd = s.substring(0,2);
-		String mm = s.substring(2,4);
-		int mmt = Integer.parseInt(mm);
-		int ddt = Integer.parseInt(dd);
+	public static boolean passerdato(String s) {
+		boolean datoer = false;
+		int dage;
 
-		if (ddt < 1 || mmt < 1) {
-			return false;
-		} else if(mmt == 1 & ddt <= 31) {
-			return true;
-			//Måned 01 Dato = 1-31
-		} else if (mmt == 2 & ddt <= 28) {
-			return true;
-			//Måned 02 Dato = 1-28
-		} else if (mmt == 3 & ddt <= 31) {
-			return true;
-			//Måned 03 Dato = 1-31
-		} else if (mmt == 4 & ddt <= 30) {
-			return true;
-			//Måned 04 Dato = 1-30
-		} else if (mmt == 5 & ddt <= 31) {
-			return true;
-			//Måned 05 Dato = 1-31
-		} else if (mmt == 6 & ddt <= 30) {
-			return true;
-			//Måned 06 Dato = 1-30
-		} else if (mmt == 7 & ddt <= 31) {
-			return true;
-			//Måned 7 Dato = 1-31
-		} else if (mmt == 8 & ddt <= 31) {
-			return true;
-			//Måned 8 Dato = 1-31
-		} else if (mmt == 9 & ddt <= 30) {
-			return true;
-			//Måned 9 Dato = 1-30
-		} else if (mmt == 10 & ddt <= 31) {
-			return true;
-			//Måned 10 Dato = 1-31
-		} else if (mmt == 11 & ddt <= 30) {
-			return true;
-			//Måned 11 Dato = 1-30
-		} else if (mmt == 12 & ddt <= 31) {
-			return true;
-			//Måned 12 Dato = 1-31
-		} else {
-			return false;
+		//Her laves datoen om til integers
+		int cpr0 = Integer.parseInt(s.substring(0,1));
+		int cpr1 = Integer.parseInt(s.substring(1,2));
+		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
+		int dato = cpr0 * 10 + cpr1;
+
+		//Her laves månede til integers
+		int cpr2 = Integer.parseInt(s.substring(2,3));
+		int cpr3 = Integer.parseInt(s.substring(3,4));
+		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
+		int måned = 10 * cpr2 + cpr3;
+
+		//Her laves årstallet om til integers
+		int cpr4 = Integer.parseInt(s.substring(4,5));
+		int cpr5 = Integer.parseInt(s.substring(5,6));
+		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
+		int år = 10 * cpr4 + cpr5;
+		
+		//Måneder med 31 dage	
+		if (måned == 1 || måned == 3 || måned == 5 || måned == 7 || måned == 8 || måned == 10 || måned == 12) {
+			dage = 31;
+			if (dato <= dage) {
+				datoer = true;
+			}
 		}
+		//Måneder med 30 dage
+		if (måned == 4 || måned == 6 || måned == 9 || måned == 11) {
+			dage = 30;
+			if (dato <= dage) {
+				datoer = true;
+			}
+		}
+		//Februar udenfor skudår
+		if (måned == 2 && år%4 != 0) {
+			dage = 28;
+			if (dato <= dage) {
+				datoer = true;
+			}
+		}
+		//Februar i skudår
+		if (måned == 2 && år%4 == 0) {
+			dage = 29;
+			if (dato <= dage) {
+				datoer = true;
+			}
+		}
+		return datoer;
 	}
 }
