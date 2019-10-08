@@ -20,14 +20,13 @@ public class NextSquare {
 	}
 
 	public static int nextSquare(int n) {
-		/*if (n < 0) {
+		if (n < 0) {
+			return 0;
+		}else {
+			//Her laver vi en casting. Det er gjort fordi kvadrartrodden normalt retunere en double
 			int h = (int)Math.sqrt(n);
-			int g = h+2;
-			return(g*g);
-		}*/
-		//Her laver vi en casting. Det er gjort fordi kvadrartrodden normalt retunere en double
-		int h = (int)Math.sqrt(n);
-		int g = h+1;
-		return(g*g);
+			int g = h+1;
+			return g*g;
+		}
 	}
 }
