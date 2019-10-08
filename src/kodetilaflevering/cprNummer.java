@@ -1,117 +1,88 @@
+package kodetilaflevering;
+
 import java.util.Scanner;
-//LAV TIL STRING - OG "IF LETTER" SKRIV KUN TAL
+//AFVIS HVIS IKKE RIGTIG LÆNGDE
 public class cprNummer {
 	public static void main (String [] args) {
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
-		//CPR-nummer består af 10 tal, DDMMÅÅ-4tal
-		//int mm = n.substring(0,2); 
 
-		String mm = s.substring(0,2);
-		System.out.println(mm);
-		String dd = s.substring(2,4);
-		System.out.println(dd);
-		String year = s.substring(4,6);
-		System.out.println(year);
-		String last = s.substring(6,10);
-		System.out.println(last);
-
-		int mmt = Integer.parseInt(mm);
-		int ddt = Integer.parseInt(dd);
-		int yeart = Integer.parseInt(year);
-		int lastt = Integer.parseInt(last);
-		
-		if (datoOgMåned == true && årTjek == true) {
-			String lige = s.substring(10);
+		if (erbogstav (s) > 1) {
+			System.out.println("ikke et cprnummer");	
+		} else if (datoOgMåned(s) == false) {
+			System.out.println("ikke et cprnummer");
+		} else if (datoOgMåned (s) == true) {
+			String lige = s.substring(9);
 			int liget = Integer.parseInt(lige);
 			int ulige = liget % 2;
 			if (ulige == 0) {
-				System.out.print("lige");
+				System.out.print("lige cprnummer");
+			} else if (ulige != 0){
+				System.out.print("ulige cprnummer");
+			} else if (s.length() > 10 || s.length() < 10){
+				System.out.println("ikke et cprnummer");
 			} else {
-				System.out.print("ulige");
+				System.out.println("ikke et cprnummer");
 			}
 		}
 	}
-	
-	public static boolean datoOgMåned (int mmt, int ddt) {
-		String mm = s.substring(0,2);
-		String dd = s.substring(2,4);
+	public static int erbogstav (String s) {
+		int erbogstav = 0;
+		for (int i = 0; i < s.length(); i++) {
+			char bogstav = s.charAt(i);
+			if (Character.isLetter(bogstav)) {
+				erbogstav ++;
+			}
+		}
+		return erbogstav;
+	}
+	public static boolean datoOgMåned (String s) {
+
+		String dd = s.substring(0,2);
+		String mm = s.substring(2,4);
 		int mmt = Integer.parseInt(mm);
 		int ddt = Integer.parseInt(dd);
-		
-		if (mmt == 01 & ddt >= 1 & ddt <= 31) {
-			System.out.print("Januar");
+
+		if (ddt < 1 || mmt < 1) {
+			return false;
+		} else if(mmt == 1 & ddt <= 31) {
 			return true;
-			//Måned 01 Dato = 1-31) {
-		} else if (mmt == 02 & ddt >= 1 & ddt <= 28) {
-			System.out.print("Februar");
+			//Måned 01 Dato = 1-31
+		} else if (mmt == 2 & ddt <= 28) {
 			return true;
-			//Måned 02 Dato = 1-28 {
-		} else if (mmt == 03 & ddt >= 1 & ddt <= 31) {
-			System.out.print("Marts");
+			//Måned 02 Dato = 1-28
+		} else if (mmt == 3 & ddt <= 31) {
 			return true;
-			//Måned 03 Dato = 1-31) {
-		} else if (mmt == 04 & ddt >= 1 & ddt <= 30) {
-			System.out.print("April");
+			//Måned 03 Dato = 1-31
+		} else if (mmt == 4 & ddt <= 30) {
 			return true;
-			//Måned 04 Dato = 1-30) {
-		} else if (mmt == 05 & ddt >= 1 & ddt <= 31) {
-			System.out.print("Maj");
+			//Måned 04 Dato = 1-30
+		} else if (mmt == 5 & ddt <= 31) {
 			return true;
-			//Måned 05 Dato = 1-31)) {
-		} else if (mmt == 06 & ddt >= 1 & ddt <= 30) {
-			System.out.print("Juni");
+			//Måned 05 Dato = 1-31
+		} else if (mmt == 6 & ddt <= 30) {
 			return true;
-			//Måned 06 Dato = 1-30)) {
-		} else if (mmt == 07 & ddt >= 1 & ddt <= 31) {
-			System.out.print("Juli");
+			//Måned 06 Dato = 1-30
+		} else if (mmt == 7 & ddt <= 31) {
 			return true;
-			//Måned 7 Dato = 1-31)) {
-		} else if (mmt == 08 & ddt >= 1 & ddt <= 31) {
-			System.out.print("August");
+			//Måned 7 Dato = 1-31
+		} else if (mmt == 8 & ddt <= 31) {
 			return true;
-			//Måned 8 Dato = 1-31)) {
-		} else if (mmt == 09 & ddt >= 1 & ddt <= 30) {
-			System.out.print("September");
+			//Måned 8 Dato = 1-31
+		} else if (mmt == 9 & ddt <= 30) {
 			return true;
-			//Måned 9 Dato = 1-30)) {
-		} else if (mmt == 10 & ddt >= 1 & ddt <= 31) {
-			System.out.print("Oktober");
+			//Måned 9 Dato = 1-30
+		} else if (mmt == 10 & ddt <= 31) {
 			return true;
-			//Måned 10 Dato = 1-31)) {
-		} else if (mmt == 11 & ddt >= 1 & ddt <= 30) {
-			System.out.print("November");
+			//Måned 10 Dato = 1-31
+		} else if (mmt == 11 & ddt <= 30) {
 			return true;
-			//Måned 11 Dato = 1-30)) {
-		} else if (mmt == 12 & ddt >= 1 & ddt <= 31) {
-			System.out.print("December");
+			//Måned 11 Dato = 1-30
+		} else if (mmt == 12 & ddt <= 31) {
 			return true;
-			//Måned 12 Dato = 1-31)){
+			//Måned 12 Dato = 1-31
 		} else {
 			return false;
 		}
 	}
-
-/*	public static boolean årTjek (int yeart) {
-		String year = s.substring(4,6);
-		int yeart = Integer.parseInt(year);
-
-		if (yeart <= 2019) {
-			return true;			
-		} else {
-			return false;
-		}
-	}
-
-	public static String ligeUlige (String s) {
-		String lige = s.substring(10);
-		int liget = Integer.parseInt(lige);
-		int ulige = liget % 2;
-		if (ulige == 0) {
-			return "lige";
-		} else {
-			return  "ulige";
-		}
-	}
-	*/
 }
