@@ -40,6 +40,7 @@ public class CatMouse {
 		while( (kat[0] != mus[0] || kat[1] != mus[1])) {
 			Random movingMus = new Random();
 
+			
 			int musMoveX = movingMus.nextInt(s);
 			int musMoveY = s-musMoveX;
 
@@ -48,22 +49,47 @@ public class CatMouse {
 			Random movingKatY = new Random();
 			int katMoveY = movingKatY.nextInt(katMoveX);
 
-			Random plusMinus = new Random();
-			int randMusX = plusMinus.nextInt(1);
-			int randMusY = plusMinus.nextInt(1);
+			
 
-			if(randMusX == 0 ) {
-				//		if()
+			
+			Random plusMinus = new Random();
+			int randMusX = plusMinus.nextInt(4);
+			int randMusY = plusMinus.nextInt(4);
+			//mus[0] = plusMinus.nextInt(s);
+			//mus[1] = s-mus[0];
+
+			/*
+			int posX = plusMinus.nextInt(4);
+			if(posX == 1 || posX == 3) {
+				mus[0] = mus[0] * (-1);
+			} else {
+				
+			}
+			
+			int posY = plusMinus.nextInt(4);
+			if (posY == 1 || posY == 3) {
+				mus[1] = mus[1] * (-1);
+			} else {
+				
+			}
+			*/
+			
+			
+
+			
+			if(randMusX == 1 || randMusX == 3 ) {
 				mus[0] = mus[0] + musMoveX;
 			}else {
 				mus[0] = mus[0] - musMoveX;
 			}
 
-			if(randMusY == 0) {
+			if(randMusY == 1 || randMusY == 3) {
 				mus[1] = mus[1] + musMoveY;
 			}else {
 				mus[1] = mus[1] - musMoveY;
 			}
+			
+			//kattens afstand fra musen
 			int dX = mus[0] - kat[0];
 			if(dX < s) {
 				s = dX;
@@ -117,6 +143,9 @@ public class CatMouse {
 			}
 			if(mus[1] > n) {
 				mus[1] = n;
+			}
+			if(mus[1] < 0) {
+				mus[1] = 0;
 			}
 			if(kat[0] > n) {
 				kat[0] = n;
