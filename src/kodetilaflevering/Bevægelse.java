@@ -6,10 +6,10 @@ public class Bevægelse {
 
 	public static void main (String [] args) {
 		int s = 4;
-		//musBevægelse(s);
 		katBevægelse(s);
 	}
 
+	/*
 	public static int musBevægelse (int s) {
 		//for (int i = 0; i <= 10; i++) {
 		int n = 30;
@@ -50,15 +50,13 @@ public class Bevægelse {
 			System.out.println("x: " + musx);
 			System.out.println("y: " + musy);
 			System.out.println(x01 = r.nextInt(4));
-		 */
-		//}
-		//System.out.println("x: " + musx);
-		//System.out.println("y: " + musy);
-		//}
-
-		return s;
-	}
 	//}
+	//System.out.println("x: " + musx);
+	//System.out.println("y: " + musy);
+	//}
+
+	return s;
+*/
 
 
 	public static int katBevægelse (int s) {
