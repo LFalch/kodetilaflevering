@@ -11,7 +11,6 @@ public class Telefon {
 		//kalder funktionen phoneTestet. med en string n.
 		System.out.print(phoneTestet(n));
 		
-		
 	}
 
 	public static String phoneTestet(String n) {

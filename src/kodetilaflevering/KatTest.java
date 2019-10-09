@@ -63,6 +63,7 @@ public class KatTest {
 			int y = s-x;
 			System.out.println("X: " + x);
 			System.out.println("Y: " + y);
+			//if (katx)
 			if (katx < musx && katy < musy) {
 				katx += x;
 				katy += y;
