@@ -82,7 +82,6 @@ public class TestMitLort {
 		if(randMusY == 0) {
 			if(m[1] < dy) {
 				m[1] = m[1] - m[1];
-				o = dx - m[0];
 			}
 		}
 	 

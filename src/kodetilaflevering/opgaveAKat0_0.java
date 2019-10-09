@@ -12,6 +12,9 @@ public class opgaveAKat0_0 {
 		int mouseX = 12;
 		int mouseY = 12;
 		runCatAndMouse(n, catX, catY, mouseX, mouseY);
+		Random h = new Random();
+		int g = h.nextInt(1);
+		System.out.println("Random" + g);
 	}
 	// method here
 	public static void runCatAndMouse(int n, int catX, int catY, int mouseX,int mouseY) {
