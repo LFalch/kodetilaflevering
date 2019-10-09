@@ -3,11 +3,11 @@ import java.util.Random;
 public class KatTest {
 
 	public static void main (String [] args) {
-		//musBevægelse(2);
-		katBevægelse(4);
+		//musBevÃ¦gelse(2);
+		katBevÃ¦gelse(4);
 	}
 	//public static int 
-	public static int musBevægelse (int s) {
+	public static int musBevÃ¦gelse (int s) {
 		int musx = 12;
 		int musy = 12;
 		for (int i = 0; i <= 10; i++) {
@@ -49,14 +49,14 @@ public class KatTest {
 	}
 
 
-	public static int katBevægelse (int s) {
+	public static int katBevÃ¦gelse (int s) {
 		//int n = 24;
 		int katx = 0;
 		int katy = 0;
 		int musx = 30;
 		int musy = 30;
 
-		//Kattens Bevægelse
+		//Kattens BevÃ¦gelse
 		while (katx != musx && katy != musy) {
 			Random r = new Random();
 			int x = r.nextInt(s);
@@ -89,7 +89,7 @@ public class KatTest {
 			katy = katy + y;
 			System.out.println(katx);
 			System.out.println(katy);
-			System.out.println("NÆSTE");
+			System.out.println("NÃ†STE");
 		}
 
 		System.out.println("Catch");

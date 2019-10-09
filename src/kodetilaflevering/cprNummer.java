@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class cprNummer {
 	public static void main (String [] args) {
-		//Kalder på et cpr-nummer
+		//Kalder pÃ¥ et cpr-nummer
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
 		//Printer test af CPRNummeret
@@ -51,44 +51,44 @@ public class cprNummer {
 		//Her laves datoen om til integers
 		int cpr0 = Integer.parseInt(s.substring(0,1));
 		int cpr1 = Integer.parseInt(s.substring(1,2));
-		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
+		//Da de fÃ¸rste vÃ¦rdi er tiere, og den nÃ¦ste 1nere, ganges den fÃ¸rste med 10
 		int dato = cpr0 * 10 + cpr1;
 
-		//Her laves månede til integers
+		//Her laves mÃ¥nede til integers
 		int cpr2 = Integer.parseInt(s.substring(2,3));
 		int cpr3 = Integer.parseInt(s.substring(3,4));
-		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
-		int måned = 10 * cpr2 + cpr3;
+		//Da de fÃ¸rste vÃ¦rdi er tiere, og den nÃ¦ste 1nere, ganges den fÃ¸rste med 10
+		int mÃ¥ned = 10 * cpr2 + cpr3;
 
-		//Her laves årstallet om til integers
+		//Her laves Ã¥rstallet om til integers
 		int cpr4 = Integer.parseInt(s.substring(4,5));
 		int cpr5 = Integer.parseInt(s.substring(5,6));
-		//Da de første værdi er tiere, og den næste 1nere, ganges den første med 10
-		int år = 10 * cpr4 + cpr5;
+		//Da de fÃ¸rste vÃ¦rdi er tiere, og den nÃ¦ste 1nere, ganges den fÃ¸rste med 10
+		int Ã¥r = 10 * cpr4 + cpr5;
 		
-		//Måneder med 31 dage	
-		if (måned == 1 || måned == 3 || måned == 5 || måned == 7 || måned == 8 || måned == 10 || måned == 12) {
+		//MÃ¥neder med 31 dage	
+		if (mÃ¥ned == 1 || mÃ¥ned == 3 || mÃ¥ned == 5 || mÃ¥ned == 7 || mÃ¥ned == 8 || mÃ¥ned == 10 || mÃ¥ned == 12) {
 			dage = 31;
 			if (dato <= dage) {
 				datoer = true;
 			}
 		}
-		//Måneder med 30 dage
-		if (måned == 4 || måned == 6 || måned == 9 || måned == 11) {
+		//MÃ¥neder med 30 dage
+		if (mÃ¥ned == 4 || mÃ¥ned == 6 || mÃ¥ned == 9 || mÃ¥ned == 11) {
 			dage = 30;
 			if (dato <= dage) {
 				datoer = true;
 			}
 		}
-		//Februar udenfor skudår
-		if (måned == 2 && år%4 != 0) {
+		//Februar udenfor skudÃ¥r
+		if (mÃ¥ned == 2 && Ã¥r%4 != 0) {
 			dage = 28;
 			if (dato <= dage) {
 				datoer = true;
 			}
 		}
-		//Februar i skudår
-		if (måned == 2 && år%4 == 0) {
+		//Februar i skudÃ¥r
+		if (mÃ¥ned == 2 && Ã¥r%4 == 0) {
 			dage = 29;
 			if (dato <= dage) {
 				datoer = true;

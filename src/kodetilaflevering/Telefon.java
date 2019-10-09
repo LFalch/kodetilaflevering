@@ -14,36 +14,36 @@ public class Telefon {
 	}
 
 	public static String phoneTestet(String n) {
-		//vi indfører en variable for længden af n, vi bruger kun den her én gang, så det er lidt overflødigt.
-		//Det får det første if-statement til at se lidt pænere ud, men...
+		//vi indfï¿½rer en variable for lï¿½ngden af n, vi bruger kun den her ï¿½n gang, sï¿½ det er lidt overflï¿½digt.
+		//Det fï¿½r det fï¿½rste if-statement til at se lidt pï¿½nere ud, men...
 		int k = n.length();
-		//vi tjekker om længden er mere end eller lig med 8, hvis den er, så fjerner vi alt whitespace, det vil sige mellemrum osv.
+		//vi tjekker om lï¿½ngden er mere end eller lig med 8, hvis den er, sï¿½ fjerner vi alt whitespace, det vil sige mellemrum osv.
 		if(k >= 8) {
 			n = n.replaceAll("\\s","");
 		}else {
 			//Hvis den er mindre end 8, kan vi allerede konkludere nu, at det ikke er et dansk-telefonnummer
 			return "fejl";
 		}
-		//vi kigger om stringen nu starter med +45, og så fjerner vi det
+		//vi kigger om stringen nu starter med +45, og sï¿½ fjerner vi det
 		if(n.startsWith("+45") ) {
 			n = n.replaceAll("\\+45", "");
 		}
-		//Vi kigger på om det starter med 0
+		//Vi kigger pï¿½ om det starter med 0
 		if(n.startsWith("0")) {
 			return "fejl";
 		}
-		//vi undersøger om stringen indeholder andet end tal nu
+		//vi undersï¿½ger om stringen indeholder andet end tal nu
 		if(n.matches("[0-9]+")) {
 		}else {
 			return "fejl";
 		}
-		//nu burde længden kun være 8, så det tjekker vi lige
+		//nu burde lï¿½ngden kun vï¿½re 8, sï¿½ det tjekker vi lige
 		if(n.length() == 8) {
 		}else {
 			return "fejl";
 		}
-		//Funktionen ville stoppe, så snart den kommer til et "return", så hvis den ikke er stoppet...
-		//...ved vi at det må være et dansk telefonnummer. Vi kan nu retunerer det ønskede resultat.
+		//Funktionen ville stoppe, sï¿½ snart den kommer til et "return", sï¿½ hvis den ikke er stoppet...
+		//...ved vi at det mï¿½ vï¿½re et dansk telefonnummer. Vi kan nu retunerer det ï¿½nskede resultat.
 
 		return "+45 "+n;
 	}

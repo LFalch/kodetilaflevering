@@ -3,14 +3,13 @@ package kodetilaflevering;
 import java.util.Scanner;
 
 public class CPRtest {
-	public static boolean main (String [] args) {
-
-
+	public static void main (String [] args) {
+		tjek("Din mor");
 	}
-	public static boolean tjek (String a) {
+	public static boolean tjek(String a) {
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
-		//CPR-nummer består af 10 tal, DDMMÅÅ-4tal
+		//CPR-nummer bestÃ¥r af 10 tal, DDMMÃ…Ã…-4tal
 		//int mm = n.substring(0,2); 
 
 		String mm = s.substring(0,2);
@@ -30,56 +29,45 @@ public class CPRtest {
 
 		if (mmt == 01 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Januar");
-			return true;
-			//Måned 01 Dato = 1-31) {
+			//MÃ¥ned 01 Dato = 1-31) {
 		} else if (mmt == 02 & ddt >= 1 & ddt <= 28) {
 			System.out.print("Februar");
-			return true;
-			//Måned 02 Dato = 1-28 {
+			//MÃ¥ned 02 Dato = 1-28 {
 		} else if (mmt == 03 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Marts");
-			return true;
-			//Måned 03 Dato = 1-31) {
+			//MÃ¥ned 03 Dato = 1-31) {
 		} else if (mmt == 04 & ddt >= 1 & ddt <= 30) {
 			System.out.print("April");
-			return true;
-			//Måned 04 Dato = 1-30) {
+			//MÃ¥ned 04 Dato = 1-30) {
 		} else if (mmt == 05 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Maj");
-			return true;
-			//Måned 05 Dato = 1-31)) {
+			//MÃ¥ned 05 Dato = 1-31)) {
 		} else if (mmt == 06 & ddt >= 1 & ddt <= 30) {
 			System.out.print("Juni");
-			return true;
-			//Måned 06 Dato = 1-30)) {
+			//MÃ¥ned 06 Dato = 1-30)) {
 		} else if (mmt == 07 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Juli");
-			return true;
-			//Måned 7 Dato = 1-31)) {
-		} else if (mmt == 08 & ddt >= 1 & ddt <= 31) {
+			//MÃ¥ned 7 Dato = 1-31)) {
+		} else if (mmt == 8 & ddt >= 1 & ddt <= 31) {
 			System.out.print("August");
-			return true;
-			//Måned 8 Dato = 1-31)) {
-		} else if (mmt == 09 & ddt >= 1 & ddt <= 30) {
+			//MÃ¥ned 8 Dato = 1-31)) {
+		} else if (mmt == 9 & ddt >= 1 & ddt <= 30) {
 			System.out.print("September");
-			return true;
-			//Måned 9 Dato = 1-30)) {
+			//MÃ¥ned 9 Dato = 1-30)) {
 		} else if (mmt == 10 & ddt >= 1 & ddt <= 31) {
 			System.out.print("Oktober");
-			return true;
-			//Måned 10 Dato = 1-31)) {
+			//MÃ¥ned 10 Dato = 1-31)) {
 		} else if (mmt == 11 & ddt >= 1 & ddt <= 30) {
 			System.out.print("November");
-			return true;
-			//Måned 11 Dato = 1-30)) {
+			//MÃ¥ned 11 Dato = 1-30)) {
 		} else if (mmt == 12 & ddt >= 1 & ddt <= 31) {
 			System.out.print("December");
-			return true;
-			//Måned 12 Dato = 1-31)){
+			//MÃ¥ned 12 Dato = 1-31)){
 		} else {
 			System.out.print("ikke et cprnummer");
+			return false;
 		}
-
+		
 		String lige = s.substring(10);
 		int liget = Integer.parseInt(lige);
 		int ulige = liget % 2;
@@ -88,5 +76,6 @@ public class CPRtest {
 		} else {
 			System.out.print("ulige");
 		}
+		return true;
 	}
 }

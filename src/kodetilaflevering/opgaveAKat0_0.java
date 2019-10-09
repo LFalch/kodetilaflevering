@@ -21,7 +21,7 @@ public class opgaveAKat0_0 {
 		// print user input
 		System.out.println(n+" ["+catX+";"+catY+"]"+" ["+mouseX+";"+mouseY+"]");
 		int k = 0;
-		int bevægelse = 2;
+		int bevÃ¦gelse = 2;
 		//Random random = new Random();
 		// checks for valid input
 		if ( catX < 0 || catY < 0 || mouseX < 0 || mouseY < 0 || n < 0 ||catX > n || catY > n || mouseX > n || mouseY > n) {
@@ -32,7 +32,7 @@ public class opgaveAKat0_0 {
 				Random r = new Random();	
 
 				//int randomint = r.nextInt();
-				//Skal have musen til at bevæge sig negativ retning også
+				//Skal have musen til at bevÃ¦ge sig negativ retning ogsÃ¥
 				int mX = r.nextInt(2-2)-2;
 				int mY = r.nextInt(2-2)-2;
 				if (mX < 0) {
@@ -43,8 +43,8 @@ public class opgaveAKat0_0 {
 				}
 				int sum = mX + mY;
 				if (sum == 2) {
-					int mbevægelseX = mX;
-					int mbevægelseY = mY;
+					int mbevÃ¦gelseX = mX;
+					int mbevÃ¦gelseY = mY;
 
 					k ++;
 					/*int mouseMovement = 2;
@@ -63,69 +63,69 @@ public class opgaveAKat0_0 {
 					 */
 					// cat
 					if ( catX < mouseX && catY < mouseY){
-						catX += bevægelse;
-						catY += bevægelse;
-						mouseX += mbevægelseX;
-						mouseY += mbevægelseY;
-						//Den samlede mængde den bevæger sig skal være 2 i x- og y-retning
+						catX += bevÃ¦gelse;
+						catY += bevÃ¦gelse;
+						mouseX += mbevÃ¦gelseX;
+						mouseY += mbevÃ¦gelseY;
+						//Den samlede mÃ¦ngde den bevÃ¦ger sig skal vÃ¦re 2 i x- og y-retning
 					}
 					else if ( catX > mouseX && catY > mouseY) {
-						catX -= bevægelse;
-						catY -= bevægelse;
-						mouseX += mbevægelseX;
-						mouseY += mbevægelseY;
+						catX -= bevÃ¦gelse;
+						catY -= bevÃ¦gelse;
+						mouseX += mbevÃ¦gelseX;
+						mouseY += mbevÃ¦gelseY;
 					}
 					else if ( catX < mouseX && catY > mouseY) {
-						catX += bevægelse;
-						catY -= bevægelse;
-						mouseX += mbevægelseX;
-						mouseY += mbevægelseY;
+						catX += bevÃ¦gelse;
+						catY -= bevÃ¦gelse;
+						mouseX += mbevÃ¦gelseX;
+						mouseY += mbevÃ¦gelseY;
 					}
 					else if ( catX > mouseX && catY < mouseY) {
-						catX -= bevægelse;
-						catY += bevægelse;
-						mouseX += mbevægelseX;
-						mouseY += mbevægelseY;
+						catX -= bevÃ¦gelse;
+						catY += bevÃ¦gelse;
+						mouseX += mbevÃ¦gelseX;
+						mouseY += mbevÃ¦gelseY;
 					}/*
 						else if ( catX == mouseX+1) {
-							catX += bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catX += bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catY == mouseY+1) {
-							catY += bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catY += bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catX == mouseX-1) {
-							catX -= bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catX -= bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catY == mouseY-1) {
-							catY -= bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catY -= bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catX < mouseX) {
-							catX += bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catX += bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catY < mouseY) {
-							catY +=bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catY +=bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catX > mouseX) {
-							catX -= bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catX -= bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						}
 						else if ( catY > mouseY) {
-							catY -= bevægelse;
-							mouseX += mbevægelseX;
-							mouseY += mbevægelseY;
+							catY -= bevÃ¦gelse;
+							mouseX += mbevÃ¦gelseX;
+							mouseY += mbevÃ¦gelseY;
 						} */
 					System.out.println("move "+k+" ["+catX+";"+catY+"]"+" ["+mouseX+";"+mouseY+"]");
 				}

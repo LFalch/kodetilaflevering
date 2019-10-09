@@ -2,125 +2,102 @@ package kodetilaflevering;
 
 import java.util.Random;
 
-
 public class TestMitLort {
- public static void main(String[] args) {
-	  int n = 30;
-	  int s = 5;
-	  int t = 100;
-	  
-	  runSimulation(n, s, t);
- }
- 
- 
- public static void runSimulation(int n, int s, int t) {
-	 tjekParametre(n, s, t);
-	 
-	 int kat[] = new int[2];
-	 int mus[] = new int[2];
-	 
-	 int p = n/2;
-	 
-		kat[0]=0;
-		kat[1]=0;
-		
-		mus[0]=p;
-		mus[1]=p;
-	 
-	 moveMus(n, s, t, mus);
-	 
-	// moveKat();
-	 
- }
-  
- public static boolean tjekParametre(int n, int s, int t) {
-	 if(n > 0 || 0 <= s || s <= n || t>=0) {
-		 return true;		 
-	 }else {
-		 return false;
-	 }
- }
- 
- public static void moveMus(int n, int s, int t, int[] m) {
-	 for(int i = 0; i != 100; i++) {
-		 Random randMus = new Random();
-		 int dx = randMus.nextInt(s+1); //Musen bevæger sig en tilfældig afstand i x.
-		 int dy = s-dx; //musen bevæger sig altid s, så den afstand som den skal bevæge sig i y, er resten af stykket fra x.
-		 int o = 0; //overflow variabel for x til y.
-		 int OY = 0; // overflow variabel fra y til x.
-		 int p = n/2; //vi laver igen en p.
-		 
-		 //vi gør det tilfældigt om musen bevæger sig pos eller neg i y og x
-		 Random plusMinus = new Random();
-			int randMusX = plusMinus.nextInt(4);
-			int randMusY = plusMinus.nextInt(4);
-			
-			//nu bestemmer vi hvilken retning musen skal bevæge sig, alt efeter hvad tilfædigheden gav
-			if(randMusX == 1 || randMusX == 3) {
-				//vi kan få tallene 0 og 1, så hvis den er nul, bevæger musen sig neg x, vi tjekker først,
-				//om den afstand som musen VIL bevæge sig i x, er større end den afstan som den har hen til
-				//kanten, den vil sige dens x-koordinat
-				if(m[0] < dx) {
-					//den kan så kun bevæge sig sin egen afstand
-					m[0] = m[0] - m[0];
-					//vi har så en rest, som er den afstand den nu 	SKAL bevæge sig ekstra i y
-					o = dx - m[0];
-				}else {
-					m[0] = m[0] - dx;
-					o = 0;
-				}
-			}else {
-				if(m[0] < n) {
-					int e = n - m[0];
-					if(e < dx) {
-						m[0] = m[0] + e;
-						o = dx - e;
-					}else {
-						m[0] = m[0] + dx;
-						o = 0;
-					}
-				}
-			}
-			//vi siger nu at den afstand som musen kan bevæge sig, må være dy + o
-			dy = dy + o;
-			
-			if(randMusY == 0) {
-				if(m[1] < dy) {
-					m[1] = m[1] - m[1];
-					OY = dy - m[1];
-					if(m[0] > p) {
-						m[0] = m[0] - OY;
-					}else {
-						m[0] = m[0] + OY;
-					}
-				}else {
-					m[1] = m[1] - dy;
-					OY = 0;
-				}
-			}else {
-				if(m[1] < n) {
-					int w = n -m[1];
-					if(w < dy) {
-						m[1] = m[1] + w;
-						OY = dy - w;
-						if(m[1] > p) {
-							m[1] = m[1] - OY;
-						}else {
-							m[1] = m[1] + OY;
-						}
-					}else {
-						m[1] = m[1] + dy;
-						OY = 0;
-					}
-				}
-			}
-		 for(int x : m) {
-			 System.out.print(x + " ");
-		 }
-		 System.out.println("");
-		 }
-	 }
-	 
-}
- 
+	public static void main(String[] args) {
+		int n = 30;
+		int s = 5;
+		int t = 100;
 
+		runSimulation(n, s, t);
+	}
+
+	public static void runSimulation(int n, int s, int t) {
+		System.out.printf("n=%d s=%d t=%d\n", n, s, t);
+
+		if (!tjekParametre(n, s, t)) {
+			System.out.println("Illegal Parameters!");
+			return;
+		}
+		int p = n / 2;
+
+		int kat[] = {0, 0};
+		int mus[] = {p, p};
+		
+		for (int i = 0; i < t; i++) {
+			System.out.printf("[%d;%d] [%d;%d]\n", mus[0], mus[1], kat[0], kat[1]);
+			if (kat[0] == mus[0] && kat[1] == mus[1]) {
+				System.out.println("Catch!");
+				return;
+			}
+
+			moveMus(n, s, mus);
+			moveKat(n, s, mus, kat);
+		}
+	}
+
+	public static boolean tjekParametre(int n, int s, int t) {
+		if (n > 0 && 0 <= s && s <= n && t >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	private static int randomInt(Random r, int min, int max) {
+		return r.nextInt(max + 1 - min) + min;
+	}
+
+	public static void moveKat(int n, int s, int[] m, int[] k) {
+		// Vi gÃ¥r gennem hver koordinat og Ã¦ndrer s for at vise hvor mange "move points" der er tilbage.
+		for (int i = 0; i < k.length; i++) {
+			// Vi gider ikke gÃ¸re noget, hvis de to koordinater allerede er ens
+			if (k[i] != m[i]) {
+				// Vi finder sÃ¥ forskellen pÃ¥ de to koordinater
+				int d = m[i] - k[i];
+				// Hvis denne forskel er stÃ¸rre end det antal moves vi har tilbage
+				// GÃ¸r vi d lige sÃ¥ stor som s
+				if (Math.abs(d) > s) {
+					// d altsÃ¥ ligemed s men hvor vi bevarer ds fortegn
+					// SÃ¥dan at vi beholder retningen
+					d = Integer.signum(d) * s;
+					// Nu er der ikke flere moves tilbage
+					s = 0;
+				} else {
+					// TrÃ¦k det antal moves vi bruger nu fra s, sÃ¥ nÃ¦ste koordinat 
+					// ved hvor mange moves, der er tilbage
+					s -= Math.abs(d);
+				}
+				// Ã†ndr nuvÃ¦rende koordinat
+				k[i] += d;
+			}
+			// Hvis vi ikke har flere moves tilbage, sÃ¥ bare break
+			if (s <= 0) break;
+		}
+	}
+
+	// n er bredden og hÃ¸jden pÃ¥ griddet, `s` antal spaces den skal move, `t` er antal iterations
+	public static void moveMus(int n, int s, int[] m) {
+		Random r = new Random();
+
+		int minX = Math.max(0, m[0]-s);
+		int maxX = Math.min(n-1, m[0]+s);
+		// Musen bevÃ¦ger sig en tilfÃ¦ldig afstand i x.
+		int dx = randomInt(r, minX, maxX)-m[0];
+
+		int remainingS = s - Math.abs(dx);
+		// musen bevÃ¦ger sig altid s, sÃ¥ den afstand som den skal bevÃ¦ge sig i y, er
+		int dy;
+		if (remainingS > m[1]) {
+			dy = remainingS;
+		} else if (remainingS + m[1] > n - 1) {
+			dy = -remainingS;
+		} else {
+			dy = remainingS;
+			// Randomly make negative
+			if (r.nextBoolean()) {
+				dy = -dy;
+			}
+		}
+		m[0] += dx;
+		m[1] += dy;
+	}
+}

@@ -1,16 +1,16 @@
 package kodetilaflevering;
 import java.util.Random;
-public class Bevægelse {
+public class BevÃ¦gelse {
 
 
 
 	public static void main (String [] args) {
 		int s = 4;
-		katBevægelse(s);
+		katBevÃ¦gelse(s);
 	}
 
 	/*
-	public static int musBevægelse (int s) {
+	public static int musBevÃ¦gelse (int s) {
 		//for (int i = 0; i <= 10; i++) {
 		int n = 30;
 
@@ -59,7 +59,7 @@ public class Bevægelse {
 */
 
 
-	public static int katBevægelse (int s) {
+	public static int katBevÃ¦gelse (int s) {
 		int n = 30;
 
 		Random r = new Random();
@@ -101,7 +101,7 @@ public class Bevægelse {
 				musy = 0;
 			}
 
-			//Kattens bevægelse hvis tæt på
+			//Kattens bevÃ¦gelse hvis tÃ¦t pÃ¥
 			int xk = r.nextInt(s);
 			int yk = s-x;
 
@@ -127,7 +127,7 @@ public class Bevægelse {
 				katy += dy;
 			} else {
 
-				//Kattens Bevægelse
+				//Kattens BevÃ¦gelse
 
 				if (katx < musx && katy < musy) {
 					katx += xk;
